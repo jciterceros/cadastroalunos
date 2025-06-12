@@ -78,12 +78,6 @@ public class AlunoController {
 | Autenticação | JWT |
 | Deploy | Docker + AWS ECS |
 
-
-## Benefícios da Modelagem C4
-- **Clareza**: Cada nível atende a um público específico
-- **Manutenção**: Facilita a identificação de pontos de melhoria
-- **Escalabilidade**: Mostra dependências críticas (ex: integração com e-mail) 
-
 ## 📦 Estrutura do Projeto
 
 ```
@@ -91,15 +85,15 @@ cadastroalunos/
 │
 ├── 📁 docs/
 │   ├── 📁 architecture/
-│   │   └── 📄 C4-Model.md           # Documentação detalhada do modelo C4
+│   │   ├── 📁 mermaid/
+│   │   │   ├── 📄 C1-Contexto.mermaid     # Diagrama de contexto
+│   │   │   ├── 📄 C2-Containers.mermaid   # Diagrama de containers
+│   │   │   └── 📄 C3-Components.mermaid   # Diagrama de componentes
+│   │   └── 📄 C4-Model.md                 # Documentação do modelo C4
 │   ├── 📁 api/
-│   │   └── 📄 endpoints.md          # Documentação dos endpoints da API
-│   ├── 📁 setup/
-│   │   └── 📄 installation.md       # Guia de instalação e configuração
-│   └── 📄 images/                   # Diretório para os diagramas
-│       ├── 📄 C1-Contexto.png
-│       ├── 📄 C2-Containers.png
-│       └── 📄 C3-Components.png
+│   │   └── 📄 endpoints.md                # Documentação dos endpoints
+│   └── 📁 setup/
+│       └── 📄 installation.md            # Guia de instalação
 │
 ├── 📁 src/
 │   ├── 📁 main/
@@ -165,6 +159,12 @@ SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/cadastroalunos
 SPRING_DATASOURCE_USERNAME=seu_usuario
 SPRING_DATASOURCE_PASSWORD=sua_senha
 ```
+
+## 📝 Benefícios da Modelagem C4
+
+- **Clareza**: Cada nível atende a um público específico
+- **Manutenção**: Facilita a identificação de pontos de melhoria
+- **Escalabilidade**: Mostra dependências críticas (ex: integração com e-mail)
 
 ## 🤝 Contribuindo
 
