@@ -111,6 +111,11 @@ Para mais detalhes sobre os ADRs, consulte o [README dos ADRs](docs/adr/README.m
 cadastroalunos/
 │
 ├── 📁 docs/
+│   ├── 📂 adr
+│   │   ├── 📜 0001-use-c4-model-for-documentation.md
+│   │   ├── 📜 0002-spring-boot-framework-choice.md
+│   │   ├── 📜 0003-database-strategy.md
+│   │   └── 📜 README.md
 │   ├── 📁 architecture/
 │   │   ├── 📁 mermaid/
 │   │   │   ├── 📄 C1-Contexto.mermaid     # Diagrama de contexto
