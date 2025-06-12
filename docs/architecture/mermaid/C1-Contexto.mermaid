@@ -1,0 +1,6 @@
+graph TD
+    A[Usuário: Professor] -->|Cadastra/Consulta Alunos| B[API Cadastro de Alunos]
+    A2[Usuário: Secretaria] -->|Gera Relatórios| B
+    B -->|Armazena dados| C[(Banco de Dados)]
+    B -->|Envia notificações| D[Sistema de E-mail]
+    B -->|Consulta dados acadêmicos| E[API Histórico Escolar]

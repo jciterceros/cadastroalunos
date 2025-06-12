@@ -1,0 +1,6 @@
+graph TD
+    A[Aplicação Web] -->|HTTP/REST| B[API Cadastro de Alunos]
+    B -->|ORM| C[(PostgreSQL)]
+    B -->|SMTP| D[Serviço de E-mail AWS SES]
+    B -->|API REST| E[API Histórico Escolar]
+    F[Load Balancer] --> B

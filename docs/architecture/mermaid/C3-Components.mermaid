@@ -1,0 +1,6 @@
+graph TD
+    A[API Cadastro de Alunos] --> B[Controller: AlunoRouter]
+    B --> C[Service: AlunoService]
+    C --> D[Repository: AlunoRepository]
+    C --> E[Integração: EmailService]
+    C --> F[Integração: HistoricoEscolarClient]
