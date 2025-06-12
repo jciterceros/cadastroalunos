@@ -69,6 +69,33 @@ public class AlunoController {
 }
 ```
 
+## 📋 Modelo C4
+
+## 📝 Architecture Decision Records (ADRs)
+
+Os ADRs são documentos que registram decisões arquiteturais importantes do projeto, incluindo o contexto, a decisão tomada e suas consequências. Eles ajudam a:
+
+- Documentar decisões arquiteturais importantes
+- Manter um histórico de por que certas decisões foram tomadas
+- Facilitar o onboarding de novos desenvolvedores
+- Garantir consistência nas decisões técnicas
+
+### ADRs do Projeto
+
+1. [ADR-0001](docs/adr/0001-use-c4-model-for-documentation.md) - Uso do Modelo C4 para Documentação
+   - Documenta a decisão de usar o Modelo C4 para documentação da arquitetura
+   - Explica os diferentes níveis de abstração e seus benefícios
+
+2. [ADR-0002](docs/adr/0002-spring-boot-framework-choice.md) - Uso do Spring Boot como Framework
+   - Justifica a escolha do Spring Boot como framework principal
+   - Lista as alternativas consideradas e suas implicações
+
+3. [ADR-0003](docs/adr/0003-database-strategy.md) - Estratégia de Banco de Dados
+   - Define a estratégia de banco de dados para desenvolvimento e produção
+   - Explica a escolha do H2 para desenvolvimento e PostgreSQL para produção
+
+Para mais detalhes sobre os ADRs, consulte o [README dos ADRs](docs/adr/README.md).
+
 ## 🛠️ Tecnologias Utilizadas
 
 | Função | Tecnologia |
