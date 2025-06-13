@@ -2,6 +2,10 @@
 
 Este é um projeto de API REST para cadastro de alunos, desenvolvido seguindo o modelo C4 de arquitetura.
 
+## 📚 Documentação do Projeto
+
+Para uma compreensão completa do projeto, incluindo a análise de requisitos e a história contada pela equipe, consulte a [História do Projeto](docs/project-history.md). Este documento detalha os problemas identificados, os atores principais, interações com sistemas externos e os objetivos gerais da solução.
+
 ## Visão Geral
 O Modelo C4 é uma forma de documentar a arquitetura de software através de quatro níveis de abstração, cada um com um propósito específico e público-alvo diferente.
 
