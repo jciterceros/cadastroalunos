@@ -128,15 +128,16 @@ cadastroalunos/
 │   │   └── 📄 C4-Model.md                 # Documentação do modelo C4
 │   ├── 📁 api/
 │   │   └── 📄 endpoints.md                # Documentação dos endpoints
-│   └── 📁 setup/
-│       └── 📄 installation.md            # Guia de instalação
+│   ├── 📁 setup/
+│   │   └── 📄 installation.md             # Guia de instalação
+│   └── 📄 project-history.md              # História e análise de requisitos do projeto
 │
 ├── 📁 src/
 │   ├── 📁 main/
 │   │   ├── 📁 java/
 │   │   │   └── 📁 com/
 │   │   │       └── 📁 cadastroalunos/
-│   │   │           ├── 📄 AlunoController.java      # Controller (REST)
+│   │   │           ├── 📄 AlunoController.java     # Controller (REST)
 │   │   │           ├── 📄 AlunoService.java        # Lógica de negócio
 │   │   │           ├── 📄 AlunoRepository.java     # Acesso ao BD
 │   │   │           ├── 📄 EmailService.java        # Integração com e-mail
