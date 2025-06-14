@@ -1,6 +1,9 @@
 package com.jciterceros.cadastroalunos.service;
 
 import com.jciterceros.cadastroalunos.dto.AlunoDTO;
+import com.jciterceros.cadastroalunos.exception.AlunoNotFoundException;
+import com.jciterceros.cadastroalunos.exception.DuplicateEmailException;
+import com.jciterceros.cadastroalunos.exception.DuplicateMatriculaException;
 import com.jciterceros.cadastroalunos.model.Aluno;
 import com.jciterceros.cadastroalunos.repository.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +21,10 @@ public class AlunoService {
     @Transactional
     public Aluno cadastrarAluno(AlunoDTO dto) {
         if (alunoRepository.existsByMatricula(dto.getMatricula())) {
-            throw new RuntimeException("Matrícula já cadastrada");
+            throw new DuplicateMatriculaException(dto.getMatricula());
         }
         if (alunoRepository.existsByEmail(dto.getEmail())) {
-            throw new RuntimeException("Email já cadastrado");
+            throw new DuplicateEmailException(dto.getEmail());
         }
 
         Aluno aluno = new Aluno();
@@ -44,7 +47,7 @@ public class AlunoService {
 
     public Aluno buscarAlunoPorId(Long id) {
         return alunoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+                .orElseThrow(() -> new AlunoNotFoundException(id));
     }
 
     @Transactional
@@ -54,13 +57,13 @@ public class AlunoService {
         // Verifica se a nova matrícula já existe (se foi alterada)
         if (!aluno.getMatricula().equals(dto.getMatricula()) &&
                 alunoRepository.existsByMatricula(dto.getMatricula())) {
-            throw new RuntimeException("Matrícula já cadastrada");
+            throw new DuplicateMatriculaException(dto.getMatricula());
         }
 
         // Verifica se o novo email já existe (se foi alterado)
         if (!aluno.getEmail().equals(dto.getEmail()) &&
                 alunoRepository.existsByEmail(dto.getEmail())) {
-            throw new RuntimeException("Email já cadastrado");
+            throw new DuplicateEmailException(dto.getEmail());
         }
 
         aluno.setNome(dto.getNome());
@@ -79,7 +82,7 @@ public class AlunoService {
     @Transactional
     public void deletarAluno(Long id) {
         if (!alunoRepository.existsById(id)) {
-            throw new RuntimeException("Aluno não encontrado");
+            throw new AlunoNotFoundException(id);
         }
         alunoRepository.deleteById(id);
     }
