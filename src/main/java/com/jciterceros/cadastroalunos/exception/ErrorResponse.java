@@ -1,37 +1,36 @@
 package com.jciterceros.cadastroalunos.exception;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+/**
+ * Classe que representa uma resposta de erro padronizada para a API.
+ */
 public class ErrorResponse {
     private LocalDateTime timestamp;
     private int status;
     private String error;
     private String message;
     private String path;
+    private List<String> details;
 
     public ErrorResponse() {
-<<<<<<< HEAD
-    }
-
-    public ErrorResponse(LocalDateTime timestamp, int status, String error, String message, String path) {
-        this.timestamp = timestamp;
-=======
         this.timestamp = LocalDateTime.now();
     }
 
     public ErrorResponse(int status, String error, String message, String path) {
         this();
->>>>>>> 4c1e74c4df2294716ac5f8ef13bd75567ceddf16
         this.status = status;
         this.error = error;
         this.message = message;
         this.path = path;
     }
 
-<<<<<<< HEAD
-=======
-    // Getters and Setters
->>>>>>> 4c1e74c4df2294716ac5f8ef13bd75567ceddf16
+    public ErrorResponse(int status, String error, String message, String path, List<String> details) {
+        this(status, error, message, path);
+        this.details = details;
+    }
+
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
@@ -70,5 +69,13 @@ public class ErrorResponse {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public List<String> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<String> details) {
+        this.details = details;
     }
 }
