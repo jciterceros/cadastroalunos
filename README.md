@@ -136,12 +136,19 @@ cadastroalunos/
 │   ├── 📁 main/
 │   │   ├── 📁 java/
 │   │   │   └── 📁 com/
-│   │   │       └── 📁 cadastroalunos/
-│   │   │           ├── 📄 AlunoController.java     # Controller (REST)
-│   │   │           ├── 📄 AlunoService.java        # Lógica de negócio
-│   │   │           ├── 📄 AlunoRepository.java     # Acesso ao BD
-│   │   │           ├── 📄 EmailService.java        # Integração com e-mail
-│   │   │           └── 📄 Application.java         # Classe principal
+│   │   │       └── 📁 jciterceros/
+│   │   │           └── 📁 cadastroalunos/
+│   │   │               ├── 📄 Application.java         # Classe principal
+│   │   │               ├── 📁 controller/
+│   │   │               │   └── 📄 AlunoController.java # Controller REST
+│   │   │               ├── 📁 service/
+│   │   │               │   └── 📄 AlunoService.java    # Lógica de negócio
+│   │   │               ├── 📁 repository/
+│   │   │               │   └── 📄 AlunoRepository.java # Acesso ao BD
+│   │   │               ├── 📁 model/
+│   │   │               │   └── 📄 Aluno.java          # Entidade
+│   │   │               └── 📁 dto/
+│   │   │                   └── 📄 AlunoDTO.java       # Objeto de transferência
 │   │   │
 │   │   └── 📁 resources/
 │   │       ├── 📄 application.properties           # Configurações
