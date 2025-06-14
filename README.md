@@ -161,6 +161,17 @@ cadastroalunos/
 │   │       └── 📄 data.sql                         # Dados iniciais
 │   │
 │   └── 📁 test/                                    # Testes unitários
+│       └── 📁 java/
+│           └── 📁 com/
+│               └── 📁 jciterceros/
+│                   └── 📁 cadastroalunos/
+│                       ├── 📁 controller/
+│                       │   └── 📄 AlunoControllerTest.java    # Testes dos endpoints REST
+│                       ├── 📁 service/
+│                       │   └── 📄 AlunoServiceTest.java       # Testes da lógica de negócio
+│                       ├── 📁 repository/
+│                       │   └── 📄 AlunoRepositoryTest.java    # Testes de persistência
+│                       └── 📄 ApplicationTests.java           # Teste do contexto da aplicação
 │
 ├── 📄 Dockerfile                     # Configuração para containerização
 ├── 📄 docker-compose.yml             # Orquestração (API + PostgreSQL)
@@ -242,3 +253,51 @@ O pacote `exception` centraliza o tratamento de erros da aplicação, contendo:
   - Erros de validação de dados (ex: campos obrigatórios, formatos inválidos)
   - Exceções não tratadas (erro interno 500)
 - **ErrorResponse**: Classe que define o formato padronizado das respostas de erro retornadas pela API, incluindo detalhes, status, mensagem e timestamp.
+
+## 🧪 Testes
+
+O projeto inclui uma suíte completa de testes unitários para garantir a qualidade e confiabilidade do código.
+
+### Testes Unitários
+
+#### AlunoService
+- Testes de cadastro de aluno (sucesso e casos de erro)
+- Testes de listagem de alunos com paginação
+- Testes de busca por ID
+- Testes de atualização de aluno
+- Testes de deleção de aluno
+- Validações de regras de negócio (email e matrícula duplicados)
+
+#### AlunoController
+- Testes dos endpoints REST
+- Testes de criação de aluno (POST /alunos)
+- Testes de listagem de alunos (GET /alunos)
+- Testes de busca por ID (GET /alunos/{id})
+- Testes de atualização de aluno (PUT /alunos/{id})
+- Testes de deleção de aluno (DELETE /alunos/{id})
+- Validações de respostas HTTP
+
+#### AlunoRepository
+- Testes de persistência de dados
+- Testes de busca por ID
+- Testes de verificação de existência por matrícula
+- Testes de verificação de existência por email
+- Testes de deleção de registros
+
+### Executando os Testes
+
+Para executar os testes, utilize o comando Maven:
+
+```bash
+./mvnw test
+```
+
+### Cobertura de Testes
+
+Os testes cobrem os principais cenários de uso da aplicação:
+- Casos de sucesso
+- Casos de erro (exceções)
+- Validações de regras de negócio
+- Persistência de dados
+- Integração entre camadas
+
