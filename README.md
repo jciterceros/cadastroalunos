@@ -138,7 +138,6 @@ cadastroalunos/
 │   │   │   └── 📁 com/
 │   │   │       └── 📁 jciterceros/
 │   │   │           └── 📁 cadastroalunos/
-│   │   │               ├── 📄 Application.java         # Classe principal
 │   │   │               ├── 📁 controller/
 │   │   │               │   └── 📄 AlunoController.java # Controller REST
 │   │   │               ├── 📁 service/
@@ -146,9 +145,16 @@ cadastroalunos/
 │   │   │               ├── 📁 repository/
 │   │   │               │   └── 📄 AlunoRepository.java # Acesso ao BD
 │   │   │               ├── 📁 model/
-│   │   │               │   └── 📄 Aluno.java          # Entidade
-│   │   │               └── 📁 dto/
-│   │   │                   └── 📄 AlunoDTO.java       # Objeto de transferência
+│   │   │               │   └── 📄 Aluno.java           # Entidade
+│   │   │               ├── 📁 dto/
+│   │   │               │   └── 📄 AlunoDTO.java        # Objeto de transferência
+│   │   │               ├── 📁 exception/
+│   │   │               │   ├── 📄 GlobalExceptionHandler.java  # Handler global de exceções
+│   │   │               │   ├── 📄 ErrorResponse.java           # Modelo de resposta de erro padronizada
+│   │   │               │   ├── 📄 AlunoNotFoundException.java  # Exceção: aluno não encontrado
+│   │   │               │   ├── 📄 DuplicateMatriculaException.java # Exceção: matrícula duplicada
+│   │   │               │   └── 📄 DuplicateEmailException.java     # Exceção: email duplicado
+│   │   │               └── 📄 Application.java         # Classe principal
 │   │   │
 │   │   └── 📁 resources/
 │   │       ├── 📄 application.properties           # Configurações
@@ -225,3 +231,14 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## ✒️ Autores
 
 * **Fernando** - *Desenvolvimento* - [jciterceros](https://github.com/jciterceros)
+
+### Sobre o pacote `exception`
+O pacote `exception` centraliza o tratamento de erros da aplicação, contendo:
+- **Exceções customizadas** para regras de negócio:
+  - `AlunoNotFoundException`: Lançada quando um aluno não é encontrado.
+  - `DuplicateMatriculaException`: Lançada ao tentar cadastrar uma matrícula já existente.
+  - `DuplicateEmailException`: Lançada ao tentar cadastrar um email já existente.
+- **GlobalExceptionHandler**: Handler global que intercepta e padroniza as respostas de erro da API, incluindo:
+  - Erros de validação de dados (ex: campos obrigatórios, formatos inválidos)
+  - Exceções não tratadas (erro interno 500)
+- **ErrorResponse**: Classe que define o formato padronizado das respostas de erro retornadas pela API, incluindo detalhes, status, mensagem e timestamp.
