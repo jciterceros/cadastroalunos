@@ -3,6 +3,7 @@ package com.jciterceros.cadastroalunos.controller;
 import com.jciterceros.cadastroalunos.dto.AlunoDTO;
 import com.jciterceros.cadastroalunos.model.Aluno;
 import com.jciterceros.cadastroalunos.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ public class AlunoController {
     private AlunoService alunoService;
 
     @PostMapping
-    public ResponseEntity<Aluno> create(@RequestBody AlunoDTO dto) {
+    public ResponseEntity<Aluno> create(@Valid @RequestBody AlunoDTO dto) {
         Aluno aluno = alunoService.cadastrarAluno(dto);
         return ResponseEntity.ok(aluno);
     }
@@ -35,7 +36,7 @@ public class AlunoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody AlunoDTO dto) {
+    public ResponseEntity<Aluno> update(@PathVariable Long id, @Valid @RequestBody AlunoDTO dto) {
         Aluno aluno = alunoService.atualizarAluno(id, dto);
         return ResponseEntity.ok(aluno);
     }

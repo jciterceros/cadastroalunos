@@ -10,16 +10,28 @@ public class ErrorResponse {
     private String path;
 
     public ErrorResponse() {
+<<<<<<< HEAD
     }
 
     public ErrorResponse(LocalDateTime timestamp, int status, String error, String message, String path) {
         this.timestamp = timestamp;
+=======
+        this.timestamp = LocalDateTime.now();
+    }
+
+    public ErrorResponse(int status, String error, String message, String path) {
+        this();
+>>>>>>> 4c1e74c4df2294716ac5f8ef13bd75567ceddf16
         this.status = status;
         this.error = error;
         this.message = message;
         this.path = path;
     }
 
+<<<<<<< HEAD
+=======
+    // Getters and Setters
+>>>>>>> 4c1e74c4df2294716ac5f8ef13bd75567ceddf16
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
