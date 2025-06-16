@@ -28,6 +28,39 @@ public class GlobalExceptionHandler {
                 return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         }
 
+        @ExceptionHandler(ProfessorNotFoundException.class)
+        public ResponseEntity<ErrorResponse> handleProfessorNotFoundException(ProfessorNotFoundException ex,
+                        WebRequest request) {
+                ErrorResponse errorResponse = new ErrorResponse(
+                                HttpStatus.NOT_FOUND.value(),
+                                "Not Found",
+                                ex.getMessage(),
+                                request.getDescription(false));
+                return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+        }
+
+        @ExceptionHandler(PeriodoLetivoNotFoundException.class)
+        public ResponseEntity<ErrorResponse> handlePeriodoLetivoNotFoundException(PeriodoLetivoNotFoundException ex,
+                        WebRequest request) {
+                ErrorResponse errorResponse = new ErrorResponse(
+                                HttpStatus.NOT_FOUND.value(),
+                                "Not Found",
+                                ex.getMessage(),
+                                request.getDescription(false));
+                return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+        }
+
+        @ExceptionHandler(EventoNotFoundException.class)
+        public ResponseEntity<ErrorResponse> handleEventoNotFoundException(EventoNotFoundException ex,
+                        WebRequest request) {
+                ErrorResponse errorResponse = new ErrorResponse(
+                                HttpStatus.NOT_FOUND.value(),
+                                "Not Found",
+                                ex.getMessage(),
+                                request.getDescription(false));
+                return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+        }
+
         @ExceptionHandler(DuplicateMatriculaException.class)
         public ResponseEntity<ErrorResponse> handleDuplicateMatriculaException(DuplicateMatriculaException ex,
                         WebRequest request) {
